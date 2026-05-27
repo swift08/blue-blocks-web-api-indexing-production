@@ -1,0 +1,658 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@import "yet-another-react-lightbox/styles.css";
+@import "yet-another-react-lightbox/plugins/thumbnails.css";
+
+@import "tailwindcss";
+
+/* Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================
+   DESIGN TOKENS (Single Source of Truth)
+===================================================== */
+
+:root {
+  /* Layout */
+  --bb-container: 1200px;
+  --bb-container-pad: 16px;
+  --bb-section-pad-y: clamp(48px, 6vw, 80px);
+
+  /* Typography (Poppins first) */
+  --bb-font: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+
+  --bb-text: #131313;
+  --bb-muted: #64748b;
+
+  --bb-title-size: clamp(32px, 4vw, 42px);
+  --bb-title-weight: 600;
+  --bb-title-line: 1.25;
+
+  --bb-subtitle-size: clamp(18px, 2.2vw, 22px);
+  --bb-subtitle-weight: 500;
+  --bb-subtitle-line: 1.25;
+
+  --bb-body-size: 15px;
+  --bb-body-line: 1.8;
+
+  --bb-spacing : 1rem;
+
+  /* Card */
+  --bb-radius: 18px;
+  --bb-card-pad: 32px;
+
+  /* Eyebrow (label above title) */
+  --bb-eyebrow-size: 0.875rem;        /* 14px */
+  --bb-eyebrow-weight: 600;
+  --bb-eyebrow-line: 1.2;
+  --bb-eyebrow-letter: 0.06em;
+  --bb-eyebrow-color: rgba(15, 23, 42, 0.75);
+
+  /* Pill (chip/badge) */
+  --bb-pill-size: 0.8125rem;          /* 13px */
+  --bb-pill-weight: 600;
+  --bb-pill-line: 1.1;
+  --bb-pill-letter: 0.02em;
+  --bb-pill-text: rgba(15, 23, 42, 0.85);
+  --bb-pill-bg: rgba(15, 23, 42, 0.06);
+  --bb-pill-border: rgba(15, 23, 42, 0.10);
+  --bb-pill-radius: 999px;
+
+  /* Quote */
+  --bb-quote-size: 1.125rem;          /* 18px */
+  --bb-quote-weight: 500;
+  --bb-quote-line: 1.5;
+  --bb-quote-color: rgba(15, 23, 42, 0.86);
+  --bb-quote-border: rgba(15, 23, 42, 0.14);
+
+  /* Highlight (inline emphasis) */
+  --bb-highlight-weight: 600;
+  --bb-highlight-color: rgba(15, 23, 42, 0.92);
+  --bb-highlight-bg: rgba(255, 214, 102, 0.35);
+  --bb-highlight-radius: 0.35rem;
+  --bb-highlight-pad-y: 0.08em;
+  --bb-highlight-pad-x: 0.22em;
+
+  /* =========================================================
+   BB UI — Hero + PageHero Typography
+   ========================================================= */
+  --bb-hero-title-size: 2.25rem;       /* ~36px */
+  --bb-hero-title-size-lg: 3.5rem;     /* ~56px */
+  --bb-hero-title-weight: 600;
+  --bb-hero-title-line: 1.1;
+  --bb-hero-title-track: -0.01em;
+
+  --bb-hero-subtitle-size: 1rem;
+  --bb-hero-subtitle-size-lg: 1.0625rem;
+  --bb-hero-subtitle-line: 1.65;
+  --bb-hero-subtitle-color: rgba(255,255,255,0.85);
+
+  --bb-hero-note-size: 0.875rem;
+  --bb-hero-note-color: rgba(255,255,255,0.7);
+
+  --bb-pagehero-title-size: 2.25rem;   /* 36px */
+  --bb-pagehero-title-size-lg: 3rem;   /* 48px */
+  --bb-pagehero-title-weight: 600;
+  --bb-pagehero-title-color: rgb(15, 23, 42);
+
+  --bb-pagehero-bc-size: 0.75rem;
+  --bb-pagehero-bc-color: rgba(15, 23, 42, 0.65);
+}
+
+/* =====================================================
+   BASE (global font + color baseline)
+   This does NOT force typography sizes, only font-family.
+===================================================== */
+
+html,
+body {
+  font-family: var(--bb-font);
+  color: var(--bb-text);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes bb-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-bb-spin {
+  animation: bb-spin 1.2s linear infinite;
+}
+
+/* =====================================================
+   OPT-IN UI WRAPPER
+   Use .bb-ui around standardized sections/pages.
+===================================================== */
+
+.bb-ui {
+  font-family: var(--bb-font);
+  color: var(--bb-text);
+}
+
+/* Optional: reset default margins ONLY inside bb-ui
+   (prevents random spacing differences across browsers) */
+.bb-ui h1,
+.bb-ui h2,
+.bb-ui h3,
+.bb-ui p {
+  margin: 0;
+}
+
+/* =====================================================
+   SECTION SYSTEM
+===================================================== */
+
+.bb-section {
+  padding-top: var(--bb-section-pad-y);
+  padding-bottom: var(--bb-section-pad-y);
+}
+@media (min-width: 640px) {
+  .bb-section.sm\:pt-70 {
+    padding-top: 17.5rem !important;
+  }
+}
+
+.bb-section__inner{
+  width: 100%;
+  &:not(:has(> div.mx-auto)) {
+    max-width: var(--bb-container);
+    margin: 0 auto;
+    padding-left: var(--bb-container-pad);
+    padding-right: var(--bb-container-pad);
+  }
+}
+
+.bb-section__head {
+  margin-bottom: 28px;
+}
+
+.bb-section__body {
+  display: grid;
+  gap: 16px;
+}
+
+/* =====================================================
+   TYPOGRAPHY SYSTEM (use these classes in components)
+===================================================== */
+
+.bb-section-title {
+  font-size: var(--bb-title-size);
+  font-weight: var(--bb-title-weight);
+  line-height: var(--bb-title-line);
+  color: var(--bb-text);
+  & + .bb-subtitle {
+    margin-top:var(--bb-spacing);
+  }
+}
+.has-darkBg .bb-section-title { color: var(--bb-hero-title-color, #fff); margin-bottom: 10px; }
+
+.bb-sub-title {
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--bb-text);
+}
+
+.bb-subtitle {
+  font-size: var(--bb-subtitle-size);
+  font-weight: var(--bb-subtitle-weight);
+  line-height: var(--bb-subtitle-line);
+  margin-top: 10px; /* deliberate */
+  color: var(--bb-text);
+  opacity: 0.92;
+}
+
+.bb-text {
+  margin-top: 16px;
+}
+
+.bb-text p {
+  font-size: var(--bb-body-size);
+  line-height: var(--bb-body-line);
+  color: var(--bb-text);
+}
+
+.bb-text p + p {
+  margin-top: 14px;
+}
+
+/* =====================================================
+   CARD SYSTEM
+===================================================== */
+
+.bb-card {
+  border-radius: var(--bb-radius);
+  padding: var(--bb-card-pad);
+}
+
+/* =====================================================
+   BACKGROUND TOKEN CLASSES
+===================================================== */
+
+.bg-white { background-color: #ffffff; }
+.bg-paper { background-color: #FBF7F1; }
+
+.bg-sand { background-color: #F3E3CF; }
+.bg-iceSoft { background-color: #EEF7FD; }
+.bg-ice { background-color: #EAF4FF; }
+.bg-sage { background-color: #E3EBDD; }
+
+/* =====================================================
+   OPTIONAL UTILITIES
+===================================================== */
+
+.bb-center { text-align: center; }
+.bb-muted { color: var(--bb-muted); }
+.bb-radius { border-radius: var(--bb-radius); }
+
+
+/* Eyebrow */
+.bb-eyebrow {
+  font-size: var(--bb-eyebrow-size);
+  font-weight: var(--bb-eyebrow-weight);
+  line-height: var(--bb-eyebrow-line);
+  letter-spacing: var(--bb-eyebrow-letter);
+  color: var(--bb-eyebrow-color);
+  text-transform: uppercase;
+}
+
+/* Pill (chip container) */
+.bb-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--bb-pill-radius);
+  background: var(--bb-pill-bg);
+  border: 1px solid var(--bb-pill-border);
+}
+
+.bb-pill__text {
+  font-size: var(--bb-pill-size);
+  font-weight: var(--bb-pill-weight);
+  line-height: var(--bb-pill-line);
+  letter-spacing: var(--bb-pill-letter);
+  color: var(--bb-pill-text);
+  white-space: nowrap;
+}
+
+/* Quote block */
+.bb-quote {
+  font-size: var(--bb-quote-size);
+  font-weight: var(--bb-quote-weight);
+  line-height: var(--bb-quote-line);
+  color: var(--bb-quote-color);
+  font-style: italic;
+  padding-left: 1rem;
+  border-left: 3px solid var(--bb-quote-border);
+}
+
+.bb-quote__meta {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  font-style: normal;
+  opacity: 0.8;
+}
+
+/* Highlight (inline) */
+.bb-highlight {
+  font-weight: var(--bb-highlight-weight);
+  color: var(--bb-highlight-color);
+  background: var(--bb-highlight-bg);
+  border-radius: var(--bb-highlight-radius);
+  padding: var(--bb-highlight-pad-y) var(--bb-highlight-pad-x);
+}
+
+/* =========================================================
+   BB UI — Hero + PageHero Typography
+   ========================================================= */
+
+.bb-hero-title {
+  font-size: var(--bb-hero-title-size);
+  font-weight: var(--bb-hero-title-weight);
+  line-height: var(--bb-hero-title-line);
+  letter-spacing: var(--bb-hero-title-track);
+}
+
+.bb-hero-title--center {
+  font-weight: 300; /* matches your earlier center variant feel */
+}
+
+@media (min-width: 1024px) {
+  .bb-hero-title {
+    font-size: var(--bb-hero-title-size-lg);
+  }
+}
+
+.bb-hero-subtitle {
+  margin-top: 1rem;
+  font-size: var(--bb-hero-subtitle-size);
+  line-height: var(--bb-hero-subtitle-line);
+  color: var(--bb-hero-subtitle-color);
+}
+
+.bb-hero-subtitle--center {
+  max-width: 46rem;
+}
+
+@media (min-width: 640px) {
+  .bb-hero-subtitle {
+    font-size: var(--bb-hero-subtitle-size-lg);
+  }
+}
+
+.bb-hero-note {
+  margin-top: 0.25rem;
+  font-size: var(--bb-hero-note-size);
+  color: var(--bb-hero-note-color);
+}
+
+.bb-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  transition: 150ms ease;
+}
+
+.bb-hero-cta--primary {
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.30);
+  color:#ffffff;
+}
+.bb-hero-cta--primary:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.bb-hero-cta--secondary {
+  background: rgb(37, 99, 235);
+}
+.bb-hero-cta--secondary:hover {
+  background: rgb(29, 78, 216);
+}
+
+/* PageHero */
+.bb-pagehero-title {
+  font-size: var(--bb-pagehero-title-size);
+  font-weight: var(--bb-pagehero-title-weight);
+  color: var(--bb-pagehero-title-color);
+}
+
+@media (min-width: 640px) {
+  .bb-pagehero-title {
+    font-size: var(--bb-pagehero-title-size-lg);
+  }
+}
+
+.bb-pagehero-breadcrumb {
+  font-size: var(--bb-pagehero-bc-size);
+  color: var(--bb-pagehero-bc-color);
+}
+
+.bb-pagehero-breadcrumb__link {
+  transition: 150ms ease;
+}
+.bb-pagehero-breadcrumb__link:hover {
+  color: rgb(15, 23, 42);
+}
+
+.bb-pagehero-breadcrumb__current {
+  color: rgb(15, 23, 42);
+}
+
+
+/* =========================================================
+   BB UI — Cards / Side Headline / Carousel Dots / CTA
+   ========================================================= */
+
+:root {
+  /* Card text */
+  --bb-card-title-size: 1.0625rem;
+  --bb-card-title-weight: 500;
+  --bb-card-title-color: rgba(15, 23, 42, 0.92);
+
+  --bb-card-subtitle-size: 0.95rem;
+  --bb-card-subtitle-weight: 600;
+  --bb-card-subtitle-color: rgba(15, 23, 42, 0.86);
+
+  --bb-card-text-size: 0.8125rem;
+  --bb-card-text-line: 1.45;
+  --bb-card-text-color: rgba(71, 85, 105, 0.95);
+}
+
+.bb-card-title {
+  font-size: var(--bb-card-title-size);
+  font-weight: var(--bb-card-title-weight);
+  color: var(--bb-card-title-color);
+}
+
+.bb-card-subtitle {
+  font-size: var(--bb-card-subtitle-size);
+  font-weight: var(--bb-card-subtitle-weight);
+  color: var(--bb-card-subtitle-color);
+}
+
+.bb-card-text {
+  font-size: var(----bb-body-size);
+  line-height: var(--bb-card-text-line);
+  color: var(--bb-card-text-color);
+}
+
+.bb-text--muted {
+  color: rgba(71, 85, 105, 0.9);
+}
+
+/* Side headline (AdmissionsIntro right block) */
+:root {
+  --bb-sideheadline-size: 1.5rem;
+  --bb-sideheadline-size-lg: 1.875rem;
+  --bb-sideheadline-weight: 600;
+  --bb-sideheadline-line: 1.05;
+
+  --bb-sideheadline-gold: #F4B942;
+  --bb-sideheadline-blue: #49A6D6;
+  --bb-sideheadline-slate: #334155;
+}
+
+.bb-sideheadline__line {
+  font-size: var(--bb-sideheadline-size);
+  font-weight: var(--bb-sideheadline-weight);
+  line-height: var(--bb-sideheadline-line);
+}
+
+@media (min-width: 640px) {
+  .bb-sideheadline__line {
+    font-size: var(--bb-sideheadline-size-lg);
+  }
+}
+
+.bb-sideheadline__line--gold { color: var(--bb-sideheadline-gold); }
+.bb-sideheadline__line--blue { color: var(--bb-sideheadline-blue); }
+.bb-sideheadline__line--slate { color: var(--bb-sideheadline-slate); }
+
+/* Carousel dots (AdmissionsJourney) */
+.bb-carousel-dots {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.bb-carousel-dot {
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 999px;
+}
+
+.bb-carousel-dot--active { background: #1f3b82; }
+.bb-carousel-dot--inactive { background: #cbd5e1; }
+.bb-carousel-dot--focus { outline: none; box-shadow: 0 0 0 4px rgba(31, 59, 130, 0.25); }
+
+/* CTA (CtaBanner) */
+:root {
+  --bb-cta-radius: 1.5rem;
+  --bb-cta-dark-bg: #1f3b82;
+  --bb-cta-light-bg: #f1f5f9;
+  --bb-cta-light-text: #0f172a;
+  --bb-cta-dark-text: #ffffff;
+  --bb-cta-text-muted-dark: rgba(255,255,255,0.82);
+  --bb-cta-text-muted-light: rgba(71,85,105,0.95);
+
+  --bb-cta-title-size: 1.5rem;
+  --bb-cta-title-size-lg: 1.875rem;
+  --bb-cta-title-weight: 600;
+  --bb-cta-title-line: 1.2;
+}
+
+.bb-cta {
+  position: relative;
+  border-radius: var(--bb-cta-radius);
+}
+
+.bb-cta--dark {
+  background: var(--bb-cta-dark-bg);
+  color: var(--bb-cta-dark-text);
+}
+
+.bb-cta--light {
+  background: var(--bb-cta-light-bg);
+  color: var(--bb-cta-light-text);
+}
+
+.bb-cta__inner {
+  padding: 2rem;
+}
+
+@media (min-width: 640px) {
+  .bb-cta__inner {
+    padding: 2.5rem;
+  }
+}
+
+.bb-cta-title {
+  font-size: var(--bb-cta-title-size);
+  font-weight: var(--bb-cta-title-weight);
+  line-height: var(--bb-cta-title-line);
+}
+
+.bb-cta-title--lg {
+  font-size: var(--bb-cta-title-size-lg);
+}
+
+.bb-cta--dark .bb-cta__text { color: var(--bb-cta-text-muted-dark); }
+.bb-cta--light .bb-cta__text { color: var(--bb-cta-text-muted-light); }
+
+/* Buttons */
+.bb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.55rem 1.15rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: 150ms ease;
+}
+
+.bb-btn--primary {
+  background: #1f3b82;
+  color: #fff;
+}
+.bb-btn--primary:hover {
+  background: #18306a;
+}
+
+.bb-btn--inverse {
+  background: #fff;
+  color: #1f3b82;
+}
+.bb-btn--inverse:hover {
+  background: rgba(255,255,255,0.92);
+}
+
+/* HERO TYPOGRAPHY (global, consistent) */
+.bb-hero-title {
+  /* use your existing CSS variables system */
+  font-size: var(--bb-hero-title-size, 3rem);
+  line-height: var(--bb-hero-title-line, 1.05);
+  font-weight: var(--bb-hero-title-weight, 600);
+  letter-spacing: var(--bb-hero-title-track, -0.02em);
+  color: var(--bb-hero-title-color, #fff);
+  white-space: pre-line; /* supports \n titles */
+}
+
+.bb-hero-subtitle {
+  font-size: var(--bb-hero-subtitle-size, 1.125rem);
+  line-height: var(--bb-hero-subtitle-line, 1.4);
+  font-weight: var(--bb-hero-subtitle-weight, 400);
+  color: var(--bb-hero-subtitle-color, rgba(255, 255, 255, 0.9));
+  max-width: var(--bb-hero-subtitle-max, 52rem);
+}
+
+.bb-hero-note {
+  font-size: var(--bb-hero-note-size, 1rem);
+  line-height: var(--bb-hero-note-line, 1.6);
+  color: var(--bb-hero-note-color, rgba(255, 255, 255, 0.85));
+  max-width: var(--bb-hero-note-max, 56rem);
+}
+
+/* CTA ROW (keeps spacing consistent everywhere) */
+.bb-hero-ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* ===== Read More Clamp (global) ===== */
+.bb-clamp {
+  position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.bb-clamp--2 { -webkit-line-clamp: 2; }
+.bb-clamp--3 { -webkit-line-clamp: 3; }
+.bb-clamp--4 { -webkit-line-clamp: 4; }
+.bb-clamp--5 { -webkit-line-clamp: 5; }
+
+/* Smooth expand/collapse container (JS sets max-height inline) */
+.bb-readmore-wrap {
+  overflow: hidden;
+  transition: max-height 260ms ease;
+  will-change: max-height;
+}
+
+/* Button style (kept simple + consistent) */
+.bb-readmore-btn {
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  opacity: 0.9;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.bb-readmore-btn:hover { opacity: 1; }

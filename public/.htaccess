@@ -1,0 +1,331 @@
+RewriteEngine On
+
+# --------------------------------------------------
+# 1) Old URLs -> final new URLs in ONE STEP
+# --------------------------------------------------
+
+# Main pages
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^about-us\.shtml/?$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^montessori\.shtml/?$ https://blueblocks.in/montessori-system/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^careers\.shtml/?$ https://blueblocks.in/careers/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^campus\.shtml/?$ https://blueblocks.in/campus/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^faq\.shtml/?$ https://blueblocks.in/faq/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^admission\.shtml/?$ https://blueblocks.in/admissions/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^programs\.shtml/?$ https://blueblocks.in/programs/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^innovation\.shtml/?$ https://blueblocks.in/innovation/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^privacy-policy\.shtml/?$ https://blueblocks.in/privacy-policy/ [R=301,L,NE]
+
+# Paper URL migration
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^toddler-developmental-architecture/?$ https://blueblocks.in/neuropsychiatry-of-toddler-plane/ [R=301,L,NE]
+
+# Program pages
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^toddler\.shtml/?$ https://blueblocks.in/programs/playgroup/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^self\.shtml/?$ https://blueblocks.in/programs/nursery-school/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^elementary\.shtml/?$ https://blueblocks.in/programs/primary-school-elementary/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^high\.shtml/?$ https://blueblocks.in/programs/secondary-school/ [R=301,L,NE]
+
+# Innovation pages
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^drone-patent\.shtml/?$ https://blueblocks.in/innovation/drone-lab/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^space-program\.shtml/?$ https://blueblocks.in/innovation/space-lab/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^biomimicryhive\.shtml/?$ https://blueblocks.in/innovation/biomimicry-hive/ [R=301,L,NE]
+
+# Legacy/special
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^Innovation/CubeSat-Mission/?$ https://research.blueblocks.in/publications/CubeSat-INSPACE/ [R=301,L,NE]
+
+# Resolved formerly unmapped items
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^positive-parenting\.shtml/?$ https://blueblocks.in/parents/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^virtual-learning\.shtml/?$ https://blueblocks.in/programs/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^public/resourses/documents/Drone-Innovation-and-Research\.pdf$ https://blueblocks.in/innovation/drone-lab/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^public/resources/documents/Drone-Innovation-and-Research\.pdf$ https://blueblocks.in/innovation/drone-lab/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^videos\.shtml/?$ https://blueblocks.in/videos/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^schedule-meeting-with-parent-coordinator\.shtml/?$ https://blueblocks.in/contact-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^schedule-meeting-with-director-elementory\.shtml/?$ https://blueblocks.in/admissions/ [R=301,L,NE]
+
+# Homepage legacy
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^index\.(shtml|html?)$ https://blueblocks.in/ [R=301,L,NC,NE]
+
+# --------------------------------------------------
+# 1b) Migration-spec redirects (next.config.js handoff)
+# --------------------------------------------------
+
+# Section 1 - Old .shtml pages from previous site
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^amitraining\.shtml/?$ https://blueblocks.in/ami-training/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^our-programs\.shtml/?$ https://blueblocks.in/programs/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^primary-school-elementary\.shtml/?$ https://blueblocks.in/programs/primary-school-elementary/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^secondary-school\.shtml/?$ https://blueblocks.in/programs/secondary-school/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^toddler-playgroup\.shtml/?$ https://blueblocks.in/programs/playgroup/ [R=301,L,NE]
+
+# Section 2 - Chained .shtml URLs (old site linking to old site)
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^secondary-school\.shtml/faq\.shtml$ https://blueblocks.in/faq/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^secondary-school\.shtml/index\.shtml$ https://blueblocks.in/programs/secondary-school/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^secondary-school\.shtml/montessori\.shtml$ https://blueblocks.in/montessori-system/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^secondary-school\.shtml/primary-school-elementary\.shtml$ https://blueblocks.in/programs/primary-school-elementary/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^secondary-school\.shtml/secondary-school\.shtml$ https://blueblocks.in/programs/secondary-school/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^secondary-school\.shtml/1000$ https://blueblocks.in/programs/secondary-school/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^Innovation/CubeSat-Mission/space-program\.shtml$ https://blueblocks.in/innovation/space-lab/ [R=301,L,NE]
+
+# Section 3 - URL path fixes & slug changes
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^about/?$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^contact/?$ https://blueblocks.in/contact-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^Social/?$ https://blueblocks.in/adolescent-social-newborn-paper/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^research/about/?$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^research/sbb-1/?$ https://blueblocks.in/research-institute/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^research/patents/?$ https://blueblocks.in/research-institute/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^newsroom/recognitions/?$ https://blueblocks.in/blog/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^Innovation/CubeSat-Mission-/?$ https://blueblocks.in/innovation/cubesat-mission/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^programs/nursery-school/programs/?$ https://blueblocks.in/programs/nursery-school/ [R=301,L,NE]
+
+# Section 4 - Founders & team pages
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^founders/pavan-goyal/?$ https://blueblocks.in/about-us/founders/pavan-goyal/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^team/anurag-c-j/?$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^team/barsha-mishra/?$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^team/bharrgavi-bandreddi/?$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^team/chandini-priya-allu/?$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^team/j-h-dasan-perumallapalli/?$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^team/kiranmayee-gorthi/?$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^team/kriti-khare/?$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^team/mridula-chunduri/?$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^team/narmada-gattu/?$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^team/nidhi-vora/?$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^team/protiti-mookherjee/?$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^team/shibani-patel/?$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^team/sravani-ponnala/?$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^team/telugu-someshwari-devi/?$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^team/zabin-veerani/?$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+# Section 5 - Broken image/asset URLs being crawled by Google
+# Drone lab images
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^innovation/drone/control-of-error\.webp$ https://blueblocks.in/innovation/drone-lab/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^innovation/drone/innovator-01\.webp-0$ https://blueblocks.in/innovation/drone-lab/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^innovation/drone/innovator-02\.webp-1$ https://blueblocks.in/innovation/drone-lab/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^innovation/drone/innovator-03\.webp-2$ https://blueblocks.in/innovation/drone-lab/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^innovation/drone/innovator-04\.webp-3$ https://blueblocks.in/innovation/drone-lab/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^innovation/drone/innovator-05\.webp-4$ https://blueblocks.in/innovation/drone-lab/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^innovation/drone/inventions-timeline\.webp$ https://blueblocks.in/innovation/drone-lab/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^innovation/drone/real-applications\.webp$ https://blueblocks.in/innovation/drone-lab/ [R=301,L,NE]
+
+# Innovation lab images
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^innovation/innovation-lab/creation-01\.webp$ https://blueblocks.in/innovation/innovation-lab/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^innovation/innovation-lab/innovation-lab-hero\.webp$ https://blueblocks.in/innovation/innovation-lab/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^innovation/innovation-lab/materials-01\.webp$ https://blueblocks.in/innovation/innovation-lab/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^innovation/innovation-lab/serving-01\.webp$ https://blueblocks.in/innovation/innovation-lab/ [R=301,L,NE]
+
+# Elementary program images
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^programs/the-elementary/going-out\.webp$ https://blueblocks.in/programs/primary-school-elementary/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^programs/the-elementary/imagination\.webp$ https://blueblocks.in/programs/primary-school-elementary/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^programs/the-elementary/independence\.webp$ https://blueblocks.in/programs/primary-school-elementary/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^programs/the-elementary/innovation-continuum\.webp$ https://blueblocks.in/programs/primary-school-elementary/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^programs/the-elementary/metamorphosis\.webp$ https://blueblocks.in/programs/primary-school-elementary/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^programs/the-elementary/tribe\.webp$ https://blueblocks.in/programs/primary-school-elementary/ [R=301,L,NE]
+
+# Team member image URLs
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^team/krishnaveni\.webp$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^team/krithi\.webp$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+# Logo image URLs (malformed -N suffix from old site, still crawled by Google)
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^logos/ami\.png-2$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^logos/ami\.png-7$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^logos/seal\.png-4$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^logos/unesco\.png-1$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^logos/unesco\.png-6$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^logos/us-dept-of-state\.png-3$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^logos/nobel-peace-center\.png-0$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^logos/nobel-peace-center\.png-5$ https://blueblocks.in/about-us/ [R=301,L,NE]
+
+# Section 6 - Innovation slug fix
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^innovation/bio-mimicry-hive/?$ https://blueblocks.in/innovation/biomimicry-hive/ [R=301,L,NE]
+
+# Section 7 - Parents books
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^parents/books/maria-montessori/?$ https://blueblocks.in/parents/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^parents/books/maria-montessori-2/?$ https://blueblocks.in/parents/ [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteRule ^parents/books/maria-montessori-3/?$ https://blueblocks.in/parents/ [R=301,L,NE]
+
+# Section 8 - Blog wildcard (only fires for unknown blog URLs; real posts pass through)
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^blog/.+$ https://blueblocks.in/blog/ [R=301,L,NE]
+
+# Catch-all: any remaining .shtml URL not handled above -> homepage
+RewriteCond %{HTTP_HOST} ^(www\.)?blueblocks\.in$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)\.shtml$ https://blueblocks.in/ [R=301,L,NE]
+
+# --------------------------------------------------
+# 2) Canonical redirect for everything else
+# --------------------------------------------------
+RewriteCond %{HTTP_HOST} ^www\.blueblocks\.in$ [NC,OR]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://blueblocks.in/$1 [R=301,L,NE]

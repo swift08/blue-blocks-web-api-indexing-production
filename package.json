@@ -1,0 +1,35 @@
+{
+  "name": "BlueBlocks",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "prebuild": "node scripts/generate-sitemap.js",
+    "build": "next build",
+    "start": "next start",
+    "export": "next build",
+    "index-google": "node scripts/notify-google-indexing.js",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "google-auth-library": "^10.5.0",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "embla-carousel-react": "^8.6.0",
+    "framer-motion": "^12.24.7",
+    "next": "^15.1.9",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "sass": "^1.97.3",
+    "yet-another-react-lightbox": "^3.28.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.5",
+    "@tailwindcss/postcss": "^4",
+    "autoprefixer": "^10.4.23",
+    "babel-plugin-react-compiler": "1.0.0",
+    "css-loader": "^7.1.4",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^15.5.18",
+    "tailwindcss": "^4"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('src/data/site.json','utf8'\\)\\); console.log\\('site.json OK'\\)\")",
+      "Bash(node --check src/app/programs/[slug]/page.js)",
+      "Bash(node --check src/app/innovation/[slug]/page.js)",
+      "Bash(node --check src/app/publications/[slug]/page.js)",
+      "Bash(node --check src/app/page.js)",
+      "Bash(node --check src/components/blocks/Hero.js)",
+      "Bash(timeout 180 npx next build)",
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(git -C d:\\\\projects\\\\greensquare log --all --oneline -- src/components/blocks/BenchmarkBanner.js)",
+      "Bash(grep -v \"Using \\\\`<img\\\\`\")"
+    ]
+  }
+}

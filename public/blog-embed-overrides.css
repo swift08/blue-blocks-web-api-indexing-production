@@ -1,0 +1,66 @@
+/*
+  Blue Blocks blog embed overrides.
+  Update this file to tune embedded blog typography/colors/layout
+  without touching React components.
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --bb-blog-text: var(--bb-text, #0f172a);
+  --bb-blog-link: #0f52ba;
+  --bb-blog-bg: transparent;
+  --bb-blog-font: var(
+    --bb-font,
+    "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+      Arial, sans-serif
+  );
+  --bb-blog-size: var(--bb-body-size, 16px);
+  --bb-blog-line: var(--bb-body-line, 1.65);
+}
+
+html,
+body {
+  background: var(--bb-blog-bg) !important;
+  color: var(--bb-blog-text) !important;
+  font-family: var(--bb-blog-font) !important;
+  font-size: var(--bb-blog-size) !important;
+  line-height: var(--bb-blog-line) !important;
+  margin: 0 !important;
+}
+
+body *:not(svg):not(path):not(code):not(pre):not(kbd):not(samp) {
+  font-family: var(--bb-blog-font) !important;
+}
+
+header,
+footer,
+#masthead,
+#colophon,
+.site-header,
+.site-footer,
+.main-header,
+.main-footer,
+.navbar,
+.topbar,
+.top-bar,
+.wp-block-template-part,
+.elementor-location-header,
+.elementor-location-footer {
+  display: none !important;
+}
+
+.site,
+#page,
+.wp-site-blocks,
+main,
+.site-main,
+#content,
+.content-area {
+  background: var(--bb-blog-bg) !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+a {
+  color: var(--bb-blog-link) !important;
+}

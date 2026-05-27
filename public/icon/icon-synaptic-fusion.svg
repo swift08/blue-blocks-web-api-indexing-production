@@ -1,0 +1,18 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_2750_14593" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+<path d="M0 0H100V100H0V0Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_2750_14593)">
+<path d="M69.043 50C69.043 60.5172 60.5172 69.043 50 69.043C39.4828 69.043 30.957 60.5172 30.957 50C30.957 39.4828 39.4828 30.957 50 30.957C60.5172 30.957 69.043 39.4828 69.043 50Z" stroke="black" stroke-width="2" stroke-miterlimit="10"/>
+<path d="M57.3242 10.2539C57.3242 14.299 54.0451 17.5781 50 17.5781C45.9551 17.5781 42.6758 14.299 42.6758 10.2539C42.6758 6.20878 45.9551 2.92968 50 2.92968C54.0451 2.92968 57.3242 6.20878 57.3242 10.2539Z" stroke="black" stroke-width="2" stroke-miterlimit="10"/>
+<path d="M50 30.957V17.5781" stroke="black" stroke-width="2" stroke-miterlimit="10"/>
+<path d="M27.0736 16.7164C29.9339 19.5768 29.9339 24.2143 27.0736 27.0745C24.2132 29.9348 19.5759 29.9348 16.7156 27.0745C13.8552 24.2143 13.8552 19.5768 16.7156 16.7164C19.5759 13.8561 24.2132 13.8561 27.0736 16.7164Z" stroke="black" stroke-width="2" stroke-miterlimit="10"/>
+<path d="M36.5346 36.5342L27.0742 27.0738" stroke="black" stroke-width="2" stroke-miterlimit="10"/>
+<path d="M10.2539 42.6758C14.2988 42.6758 17.5781 45.9549 17.5781 50C17.5781 54.0451 14.2988 57.3242 10.2539 57.3242C6.20898 57.3242 2.92969 54.0451 2.92969 50C2.92969 45.9549 6.20898 42.6758 10.2539 42.6758Z" stroke="black" stroke-width="2" stroke-miterlimit="10"/>
+<path d="M30.957 50H17.5781" stroke="black" stroke-width="2" stroke-miterlimit="10"/>
+<path d="M42.6758 89.7461C42.6758 85.701 45.9551 82.4219 50 82.4219C54.0451 82.4219 57.3242 85.701 57.3242 89.7461C57.3242 93.7912 54.0451 97.0703 50 97.0703C45.9551 97.0703 42.6758 93.7912 42.6758 89.7461Z" stroke="black" stroke-width="2" stroke-miterlimit="10"/>
+<path d="M50 69.043V82.4219" stroke="black" stroke-width="2" stroke-miterlimit="10"/>
+<path d="M89.7461 57.3242C85.701 57.3242 82.4219 54.0451 82.4219 50C82.4219 45.9549 85.701 42.6758 89.7461 42.6758C93.7912 42.6758 97.0703 45.9549 97.0703 50C97.0703 54.0451 93.7912 57.3242 89.7461 57.3242Z" stroke="black" stroke-width="2" stroke-miterlimit="10"/>
+<path d="M69.043 50H82.4219" stroke="black" stroke-width="2" stroke-miterlimit="10"/>
+</g>
+</svg>
